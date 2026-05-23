@@ -1,16 +1,18 @@
 <?php
-// Identifiants de connexion en local avec XAMPP
-$host = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ile_multiservices";
+// Vos nouveaux identifiants en ligne (ex: Aiven, Railway, ou autre)
+$host     = "votre_hote_de_base_de_donnees.com"; 
+$port     = "3306"; // Le port fourni par votre hébergeur de BDD
+$dbname   = "votre_nom_de_base_de_donnees";
+$username = "votre_utilisateur";
+$password = "votre_mot_de_passe";
 
 try {
-    // Connexion à la base de données avec PDO
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-    // Configurer PDO pour lever des exceptions en cas d'erreur
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
+    // Connexion sécurisée avec PDO
+    $conn = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    // Si vous arrivez ici, c'est que la connexion fonctionne !
+} catch(PDOException $e) {
     die("Erreur de connexion : " . $e->getMessage());
 }
 ?>
