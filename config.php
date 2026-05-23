@@ -1,6 +1,6 @@
 <?php
 // Vos identifiants réels InfinityFree
-$host     = "sql306.infinityfree.com"; 
+$host     = "localhost"; 
 $port     = "3306"; 
 $dbname   = "if0_41986212_ile_multiservices"; 
 $username = "if0_41986212"; 
